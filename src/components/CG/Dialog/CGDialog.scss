@@ -1,0 +1,251 @@
+.cg-dialog {
+  // Ensure dialog appears above combobox dropdowns
+  z-index: 1100 !important;
+
+  .ant-modal-content {
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .ant-modal-body {
+    padding: 0;
+    max-height: 80vh;
+    background: #ffffff;
+  }
+
+  .dialog-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 80vh;
+  }
+
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0 24px;
+    border-bottom: 1px solid #f0f0f0;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .dialog-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .close-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      color: #6b7280;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: #f3f4f6;
+        color: #374151;
+      }
+    }
+  }
+  .dialog-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    background: #ffffff;
+
+    // Custom scrollbar for light theme
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f9fafb;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 3px;
+
+      &:hover {
+        background: #9ca3af;
+      }
+    }
+
+    .dialog-description {
+      margin: 0 0 24px 0;
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+  .dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 24px;
+    border-top: 1px solid #f0f0f0;
+    background: white;
+    position: sticky;
+    bottom: 0;
+
+    .cancel-button {
+      border: 1px solid #d1d5db;
+      color: #374151;
+      background: white;
+      border-radius: 6px;
+      font-weight: 500;
+      height: 36px;
+      padding: 0 16px;
+      transition: all 0.2s;
+
+      &:hover {
+        border-color: #9ca3af;
+        color: #1f2937;
+      }
+    }
+
+    .save-button {
+      background: #1f2937;
+      border: 1px solid #1f2937;
+      border-radius: 6px;
+      font-weight: 500;
+      height: 36px;
+      padding: 0 16px;
+      transition: all 0.2s;
+
+      &:hover {
+        background: #111827;
+        border-color: #111827;
+      }
+    }
+  }
+}
+
+// Common form styling for content
+.cg-dialog {
+  .ant-form {
+    .ant-form-item {
+      margin-bottom: 20px;
+
+      .ant-form-item-label {
+        padding-bottom: 6px;
+
+        label {
+          font-size: 14px;
+          font-weight: 500;
+          color: #374151;
+        }
+      }
+
+      .ant-input,
+      .ant-input:focus,
+      .ant-input-focused,
+      .ant-input-affix-wrapper,
+      .ant-input-affix-wrapper:focus,
+      .ant-input-affix-wrapper-focused {
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        padding: 8px 12px;
+        font-size: 14px;
+        transition: all 0.2s;
+
+        &:hover {
+          border-color: #9ca3af;
+        }
+
+        &:focus,
+        &.ant-input-focused,
+        &.ant-input-affix-wrapper-focused {
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+      }
+
+      .ant-input::placeholder {
+        color: #9ca3af;
+      }
+    }
+  }
+}
+
+// Dark mode support (disabled for light theme)
+/*
+@media (prefers-color-scheme: dark) {
+  .cg-dialog {
+    .ant-modal-content {
+      background: #1f2937;
+    }
+
+    .dialog-header {
+      background: #1f2937;
+      border-bottom-color: #374151;
+
+      .dialog-title {
+        color: #f9fafb;
+      }
+
+      .close-button {
+        color: #9ca3af;
+
+        &:hover {
+          background-color: #374151;
+          color: #d1d5db;
+        }
+      }
+    }
+
+    .dialog-content {
+      background: #1f2937;
+
+      .dialog-description {
+        color: #9ca3af;
+      }
+    }
+
+    .dialog-footer {
+      background: #1f2937;
+      border-top-color: #374151;
+    }
+
+    .ant-form {
+      .ant-form-item-label label {
+        color: #f3f4f6;
+      }
+
+      .ant-input,
+      .ant-input-affix-wrapper {
+        background: #374151;
+        border-color: #4b5563;
+        color: #f9fafb;
+
+        &::placeholder {
+          color: #6b7280;
+        }
+
+        &:hover {
+          border-color: #6b7280;
+        }
+
+        &:focus,
+        &.ant-input-focused,
+        &.ant-input-affix-wrapper-focused {
+          border-color: #3b82f6;
+          background: #374151;
+        }
+      }
+    }
+  }
+}
+*/
