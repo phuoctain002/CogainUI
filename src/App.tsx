@@ -49,7 +49,7 @@ function App() {
                 marginRight: "40px",
               }}
             >
-              React App
+              Cogain UI
             </div>
             <Menu
               theme="light"
